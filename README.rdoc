@@ -9,3 +9,17 @@ Not on gemcutter yet
 == As a plugin
 
     script/plugin install git://github.com/Arcath/TrainBBCode-Editor.git
+
+= Setup
+
+    script/generate tbbcejs
+    
+You then need to perfom fome file edits
+
+== config/routes.rb
+
+	map.resources :tbbce
+
+= Usage
+
+not yet :p
