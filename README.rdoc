@@ -4,7 +4,7 @@
 
 == As a gem
 
-Not on gemcutter yet
+    gem install trainbbcodeeditor
 
 == As a plugin
 
@@ -22,4 +22,4 @@ You then need to perfom fome file edits
 
 = Usage
 
-not yet :p
+http://www.arcath.net/pages/4
