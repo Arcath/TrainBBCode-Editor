@@ -4,6 +4,8 @@
 
 == As a gem
 
+Is not a rack app at the moment (uses old generators)
+
     gem install trainbbcodeeditor
 
 == As a plugin
@@ -12,13 +14,11 @@
 
 = Setup
 
-    script/generate tbbcejs
-    
-You then need to perfom fome file edits
+Add
 
-== config/routes.rb
+     config.middleware.use "TBBC::Editor::Middleware"
 
-	map.resources :tbbce
+to your application.rb (Rails 3) or environment.rb (Rails 2)
 
 = Usage
 
