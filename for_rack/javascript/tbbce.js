@@ -6,19 +6,19 @@ $(document).ready(function(){
 	$('.preview').live("click",function(){
 		s=nl2br(tbbcearea.attr("value"));
 		send=s.replace(/#/g,'[hash]');
-		$.getScript("/tbbce?string=" + send + "&tbbcef=" + tbbceframe.attr("id"));
+		$.getScript("/tbbce_handler/preview.js?string=" + send);
 		tbbceframe.slideDown("slow");
 		tbbcearea.slideUp("slow");
 		$(this).removeClass("preview");
 		$(this).addClass("closepreview");
-		$(this).attr("src","/images/tbbce/cog_delete.png");
+		$(this).attr("src","/tbbce_handler/icons/cog_delete.png");
 	});
 	$('.closepreview').live("click",function(){
 		tbbceframe.slideUp("slow");
 		tbbcearea.slideDown("slow");
 		$(this).removeClass("closepreview");
 		$(this).addClass("preview");
-		$(this).attr("src","/images/tbbce/cog_go.png");
+		$(this).attr("src","/tbbce_handler/icons/cog_go.png");
 	});
 	$('.about').live("click",function(){
 		tbbceframe.html("<b>Train BBCode Editor</b><br /><br />Written by Arcath &lt;<a href=\"http://www.arcath.net\" target=\"_BLANK\">http://www.arcath.net</a>&gt;<br />Icons by <a href=\"http://www.famfamfam.com\">FamFamFam</a><br /><br />TBBCE is an editor for <a href=\"http://www.arcath.net/pages/2\" target=\"_BLANK\">TrainBBCode</a>. <a href=\"http://www.arcath.net/pages/4\" target=\"_BLANK\">Want an editor like this in your rails app?</a>");
@@ -57,26 +57,26 @@ $(document).ready(function(){
 	tbbcebar.css("width","505px");
 	tbbcebar.css("padding","4px");
 	tbbcebar.css("font-size","17px");
-	tbbcebar.html("<img src=\"/images/tbbce/text_bold.png\" class=\"formatting\" id=\"bold\" style=\"border:none; padding-right:4px;\" alt=\"Bold\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_italic.png\" class=\"formatting\" id=\"italic\" style=\"border:none; padding-right:4px;\" alt=\"Italic\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_underline.png\" class=\"formatting\" id=\"underline\" style=\"border:none; padding-right:4px;\" alt=\"Underline\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/color_wheel.png\" class=\"formatting\" id=\"color\" style=\"border:none; padding-right:4px;\" alt=\"Color\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_align_left.png\" class=\"formatting\" id=\"left\" style=\"border:none; padding-right:4px;\" alt=\"Left Align\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_align_center.png\" class=\"formatting\" id=\"center\" style=\"border:none; padding-right:4px;\" alt=\"Center\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_align_right.png\" class=\"formatting\" id=\"right\" style=\"border:none; padding-right:4px;\" alt=\"Right Align\" />");
-	tbbcebar.append("| <img src=\"/images/tbbce/image.png\" class=\"formatting\" id=\"img\" style=\"border:none; padding-right:4px;\" alt=\"Image\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/link.png\" class=\"formatting\" id=\"url\" style=\"border:none; padding-right:4px;\" alt=\"Link\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/plugin.png\" class=\"formatting\" id=\"code\" style=\"border:none; padding-right:4px;\" alt=\"Code\" />");
-	tbbcebar.append("| <img src=\"/images/tbbce/comment.png\" class=\"formatting\" id=\"quote\" style=\"border:none; padding-right:4px;\" alt=\"Quote\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/comments.png\" class=\"formatting\" id=\"quote2\" style=\"border:none; padding-right:4px;\" alt=\"Quote with Name\" />");
-	tbbcebar.append("| <img src=\"/images/tbbce/table.png\" class=\"formatting\" id=\"table\" style=\"border:none; padding-right:4px;\" alt=\"Table\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/table_row_insert.png\" class=\"formatting\" id=\"tr\" style=\"border:none; padding-right:4px;\" alt=\"Table Row\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/table_row_delete.png\" class=\"formatting\" id=\"td\" style=\"border:none; padding-right:4px;\" alt=\"Table Cell\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/table_error.png\" class=\"formatting\" id=\"th\" style=\"border:none; padding-right:4px;\" alt=\"Table Header\" />");
-	tbbcebar.append("| <img src=\"/images/tbbce/text_list_bullets.png\" class=\"formatting\" id=\"ul\" style=\"border:none; padding-right:4px;\" alt=\"Bulleted List\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/text_list_numbers.png\" class=\"formatting\" id=\"ol\" style=\"border:none; padding-right:4px;\" alt=\"Numbered List\" />");
-	tbbcebar.append("| <img src=\"/images/tbbce/cog_go.png\" class=\"preview\" style=\"border:none; padding-right:4px;\" alt=\"Preview\" />");
-	tbbcebar.append("<img src=\"/images/tbbce/information.png\" class=\"about\" style=\"border:none; padding-right:4px;\" alt=\"About\" />");
+	tbbcebar.html("<img src=\"/tbbce_handler/icons/text_bold.png\" class=\"formatting\" id=\"bold\" style=\"border:none; padding-right:4px;\" alt=\"Bold\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_italic.png\" class=\"formatting\" id=\"italic\" style=\"border:none; padding-right:4px;\" alt=\"Italic\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_underline.png\" class=\"formatting\" id=\"underline\" style=\"border:none; padding-right:4px;\" alt=\"Underline\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/color_wheel.png\" class=\"formatting\" id=\"color\" style=\"border:none; padding-right:4px;\" alt=\"Color\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_align_left.png\" class=\"formatting\" id=\"left\" style=\"border:none; padding-right:4px;\" alt=\"Left Align\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_align_center.png\" class=\"formatting\" id=\"center\" style=\"border:none; padding-right:4px;\" alt=\"Center\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_align_right.png\" class=\"formatting\" id=\"right\" style=\"border:none; padding-right:4px;\" alt=\"Right Align\" />");
+	tbbcebar.append("| <img src=\"/tbbce_handler/icons/image.png\" class=\"formatting\" id=\"img\" style=\"border:none; padding-right:4px;\" alt=\"Image\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/link.png\" class=\"formatting\" id=\"url\" style=\"border:none; padding-right:4px;\" alt=\"Link\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/plugin.png\" class=\"formatting\" id=\"code\" style=\"border:none; padding-right:4px;\" alt=\"Code\" />");
+	tbbcebar.append("| <img src=\"/tbbce_handler/icons/comment.png\" class=\"formatting\" id=\"quote\" style=\"border:none; padding-right:4px;\" alt=\"Quote\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/comments.png\" class=\"formatting\" id=\"quote2\" style=\"border:none; padding-right:4px;\" alt=\"Quote with Name\" />");
+	tbbcebar.append("| <img src=\"/tbbce_handler/icons/table.png\" class=\"formatting\" id=\"table\" style=\"border:none; padding-right:4px;\" alt=\"Table\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/table_row_insert.png\" class=\"formatting\" id=\"tr\" style=\"border:none; padding-right:4px;\" alt=\"Table Row\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/table_row_delete.png\" class=\"formatting\" id=\"td\" style=\"border:none; padding-right:4px;\" alt=\"Table Cell\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/table_error.png\" class=\"formatting\" id=\"th\" style=\"border:none; padding-right:4px;\" alt=\"Table Header\" />");
+	tbbcebar.append("| <img src=\"/tbbce_handler/icons/text_list_bullets.png\" class=\"formatting\" id=\"ul\" style=\"border:none; padding-right:4px;\" alt=\"Bulleted List\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/text_list_numbers.png\" class=\"formatting\" id=\"ol\" style=\"border:none; padding-right:4px;\" alt=\"Numbered List\" />");
+	tbbcebar.append("| <img src=\"/tbbce_handler/icons/cog_go.png\" class=\"preview\" style=\"border:none; padding-right:4px;\" alt=\"Preview\" />");
+	tbbcebar.append("<img src=\"/tbbce_handler/icons/information.png\" class=\"about\" style=\"border:none; padding-right:4px;\" alt=\"About\" />");
 	//Handle the links
 	$('#tbbce_bar .formatting').live("click",function(){
 		processtag(this.id,tbbcearea,tbbceframe);
@@ -84,7 +84,7 @@ $(document).ready(function(){
 		return false
 	});
 	//Format the text area
-	tbbcearea.attr("cols",70);
+	tbbcearea.attr("cols",61);
 	tbbcearea.attr("rows",10);
 	//Now lets hide that for the WYSIWYG bit
 	//tbbcearea.css("display","none");
@@ -94,8 +94,9 @@ $(document).ready(function(){
 	tbbceframe.css("border","2px solid #CCC");	
 	tbbceframe.css("display","none");
 	tbbceframe.css("overflow","auto");
-	tbbcearea.css("background-color",$('body').css("background-color"));
-	tbbcearea.css("color",$('body').css("color"));
+	tbbcearea.css("background-color",<%BGCOL%>);
+	tbbcearea.css("border","2px solid #CCC");	
+	tbbcearea.css("color",<%TCOL%>);
 });
 
 function processtag(tag,tbbcearea,tbbceframe){
