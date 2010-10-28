@@ -16,7 +16,7 @@ class TBBC
 			else
 				t_col = "$('body').css(\"color\")"
 			end
-			[200, {"Content-Type" => "text/javascript"},return_file("javascript/tbbce.js").gsub(/<%BGCOL%>/,bg_col).gsub(/<%TCOL%>/,t_col)]
+			[200, {"Content-Type" => "text/javascript"},build_tbbce_js]
 		end
 
 		def jqfs

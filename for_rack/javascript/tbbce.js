@@ -4,11 +4,15 @@ $(document).ready(function(){
 	tbbcearea=$('.tbbce_area');
 	tbbceframe=$('#tbbce_frame');
 	$('.preview').live("click",function(){
-		s=nl2br(tbbcearea.attr("value"));
-		send=s.replace(/#/g,'[hash]');
-		$.getScript("/tbbce_handler/preview.js?string=" + send);
+		send=tbbcearea.attr("value");
+		$.ajax({
+			url: "/tbbce_handler/preview.js",
+			type: "POST",
+			data: send
+		});
 		tbbceframe.slideDown("slow");
 		tbbcearea.slideUp("slow");
+		tbbceframe.html("Loading Preview");
 		$(this).removeClass("preview");
 		$(this).addClass("closepreview");
 		$(this).attr("src","/tbbce_handler/icons/cog_delete.png");
@@ -21,7 +25,7 @@ $(document).ready(function(){
 		$(this).attr("src","/tbbce_handler/icons/cog_go.png");
 	});
 	$('.about').live("click",function(){
-		tbbceframe.html("<b>Train BBCode Editor</b><br /><br />Written by Arcath &lt;<a href=\"http://www.arcath.net\" target=\"_BLANK\">http://www.arcath.net</a>&gt;<br />Icons by <a href=\"http://www.famfamfam.com\">FamFamFam</a><br /><br />TBBCE is an editor for <a href=\"http://www.arcath.net/pages/2\" target=\"_BLANK\">TrainBBCode</a>. <a href=\"http://www.arcath.net/pages/4\" target=\"_BLANK\">Want an editor like this in your rails app?</a>");
+		tbbceframe.html("<b>Train BBCode Editor</b><br /><br />Written by Arcath &lt;<a href=\"http://www.arcath.net\" target=\"_BLANK\">http://www.arcath.net</a>&gt;<br />Icons by <a href=\"http://www.famfamfam.com\">FamFamFam</a><br /><br />TBBCE is an editor for <a href=\"http://www.arcath.net/\" target=\"_BLANK\">TrainBBCode</a>, which provides BBC for Ruby and Rails.<br /><br />This Editor requires <a href=\"http://www.jquery.com\">jQuery</a>");
 		tbbceframe.slideDown("slow");
 		tbbcearea.slideUp("slow");
 		$(this).removeClass("about");
