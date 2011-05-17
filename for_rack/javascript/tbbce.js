@@ -5,10 +5,12 @@ $(document).ready(function(){
 	tbbceframe=$('#tbbce_frame');
 	$('.preview').live("click",function(){
 		send=tbbcearea.attr("value");
+		alert(send);
 		$.ajax({
 			url: "/tbbce_handler/preview.js",
 			type: "POST",
-			data: send
+			//dataType: 'json',
+			data: { data: send }
 		});
 		tbbceframe.slideDown("slow");
 		tbbcearea.slideUp("slow");
